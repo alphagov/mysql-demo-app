@@ -1,0 +1,9 @@
+---
+applications:
+- name: mysql-demo-app
+  memory: 128M
+  instances: 1
+  path: .
+  command: ./write_yaml && bundle exec rake db:migrate && bundle exec rails s -p $PORT
+  services:
+    - rails-mysql

@@ -1,0 +1,27 @@
+#!/usr/bin/env ruby
+
+require "json"
+
+json = ENV.fetch("VCAP_SERVICES")
+vcap_services = JSON.parse(json)
+mysql = vcap_services.fetch("mysql")
+creds = mysql.first.fetch("credentials")
+
+user = creds.fetch("username")
+pass = creds.fetch("password")
+host = creds.fetch("host")
+port = creds.fetch("port")
+name = creds.fetch("name")
+
+File.open("config/database.yml", "w") do |file|
+  file.puts <<-YAML
+production:
+  adapter: mysql2
+  username: #{user}
+  password: #{pass}
+  host: #{host}
+  port: #{port}
+  database: #{name}
+  sslverify: false
+  YAML
+end
