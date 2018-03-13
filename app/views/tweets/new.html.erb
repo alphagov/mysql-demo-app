@@ -1,0 +1,20 @@
+<div class="container">
+  <h1>Rails Sample App - MySQL</h1>
+
+  <p>
+  This is a sample application that reads/writes to a MySQL database. The MySQL
+  database has a <a href="https://github.com/alphagov/mysql-exporter-paas">MySQL
+  exporter</a> running in the GOV.UK PaaS that is scraped by Prometheus. This is
+  then shown in a <a href="https://grafana-paas.cloudapps.digital/d/YJsEPTgmk/mysql?orgId=1">
+  Grafana dashboard</a>.
+  </p>
+
+  <%= form_for @tweet do |f| %>
+    <%= f.text_area :content, class: "tweet-box" %>
+    <%= f.submit "Tweet", class: "tweet-button" %>
+  <% end %>
+
+  <% Tweet.order("created_at desc").each do |tweet| %>
+    <p class="tweet"><%= tweet.content %></p>
+  <% end %>
+</div>
