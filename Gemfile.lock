@@ -65,6 +65,8 @@ GEM
     erubi (1.7.1)
     execjs (2.7.0)
     ffi (1.9.23)
+    gds_metrics (0.0.2)
+      prometheus-client-mmap (= 0.9.1)
     globalid (0.4.1)
       activesupport (>= 4.2.0)
     i18n (0.9.5)
@@ -90,6 +92,7 @@ GEM
     nio4r (2.2.0)
     nokogiri (1.8.2)
       mini_portile2 (~> 2.3.0)
+    prometheus-client-mmap (0.9.1)
     public_suffix (3.0.2)
     puma (3.11.3)
     rack (2.0.4)
@@ -178,6 +181,7 @@ DEPENDENCIES
   byebug
   capybara (~> 2.13)
   coffee-rails (~> 4.2)
+  gds_metrics
   jbuilder (~> 2.5)
   listen (>= 3.0.5, < 3.2)
   mysql2

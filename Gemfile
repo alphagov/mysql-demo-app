@@ -6,6 +6,8 @@ git_source(:github) do |repo_name|
 end
 
 
+gem "gds_metrics"
+
 gem "mysql2"
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.1.5'
